@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculadora de recompensas</title>
+    <meta name="author" content="Recompensas" />
+    <meta name="description" content="Calculadora de monedas para videojuegos" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/Videogame.css" />
+    <link rel="stylesheet" type="text/css" href="css/grid.css" />
+    <script type="text/javascript">
+        function calcularRecompensas() {
+          var misiones = parseInt(document.getElementById("misiones").value) || 0;
+          var enemigos = parseInt(document.getElementById("enemigos").value) || 0;
+          var recompensa = document.getElementById("recompensa").value;
+  
+          var total = 0;
+          switch (recompensa) {
+            case "oro":
+              total = misiones * 100 + enemigos * 10;
+              break;
+            case "gemas":
+              total = misiones * 5 + enemigos * 1;
+              break;
+            case "experiencia":
+              total = misiones * 500 + enemigos * 100;
+              break;
+            default:
+              break;
+          }
+  
+          document.getElementById("resultado").innerHTML =
+            "Total de " + recompensa + ": " + total;
+        }
+      </script>
+  </head>
+  <body>
+    <header id="mainheader">
+      <img src="Imágenes/Logo.jfif" height="55" alt="Adventure Logo" />
+      <h1>Calculadora de recompensas</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">All pies</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Calc</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    </nav>
+    <main>
+        <section class="content-section">
+            <h2>Calculadora</h2>
+            <p>Ingresa la cantidad de misiones y enemigos derrotados para obtener muchas recompensas:</p>
+            <p>&nbsp;</p>
+            <form class="contact-form">
+                <label for="misiones">Misiones Completadas:</label>  
+                <input type="text" id="misiones" placeholder="Ingrese el número de misiones"/>  
+                <label for="enemigos">Cantidad de Enemigos Derrotados</label>  
+                <input type="text" id="enemigos" placeholder="Ingrese el número de enemigos"/>  
+                <label for="recompensa">Tipo de recompensa:</label>  
+                <select id="recompensa">
+                    <option value="oro">Monedas de oro</option>
+                    <option value="gemas">Gemas</option>
+                    <option value="experiencia">Puntos de experiencia</option>
+                </select>
+                <input type="button" value="Calcular" onclick="calcularRecompensas();"/> 
+                <label id="resultado"></label> 
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Our address is <address>Video Game Rewards HQ - Gamer Street 123, Level City, Gaming World</address></p>
+        <small>&copy; Video Game Rewards - All rights reserved</small>
+    </footer>
+  </body>
+</html>
